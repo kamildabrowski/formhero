@@ -1,6 +1,8 @@
 # formherox
 The FormHero SDK provides methods for all form functions.
 
+Codes not working is on stage of ideas bulding. 
+
 # Now codes is in build and can be refactored a lot concepts
 
     class Bootstrap {
