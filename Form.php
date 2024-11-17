@@ -8,7 +8,6 @@ class Form {
     public function __construct(public Setting $setting = new Setting(), public \ArrayIterator $iterator = new \ArrayIterator(), View $view = new View()) {
 
     }
-
     public function lastItem() {
         return $this->iterator[$this->iterator->count() - 1];
     }
@@ -24,8 +23,8 @@ class Form {
         $this->iterator->append(new Form\Text($id));
         return $this->lastItem();
     }
-    public function inputRadio($id = null):Form\RadioOptions {
-        $this->iterator->append(new Form\RadioOptions($id));
+    public function inputRadio($id = null):Form\Radio {
+        $this->iterator->append(new Form\Radio($id));
         return $this->lastItem();
     }
     public function inputSubmit($id = null):mixed {
