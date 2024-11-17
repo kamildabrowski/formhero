@@ -24,8 +24,8 @@ class Form {
         $this->iterator->append(new Form\Text($id));
         return $this->lastItem();
     }
-    public function inputRadio($id = null):Form\Radios {
-        $this->iterator->append(new Form\Radios($id));
+    public function inputRadio($id = null):Form\RadioOptions {
+        $this->iterator->append(new Form\RadioOptions($id));
         return $this->lastItem();
     }
     public function inputSubmit($id = null):mixed {

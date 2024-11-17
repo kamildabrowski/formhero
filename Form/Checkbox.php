@@ -1,26 +1,15 @@
 <?php namespace FormHero\Form;
 
-use FormHero\Helpers\Element as ElementHelper;
-use FormHero\Helpers\View as ViewHelper;
-class Checkbox implements ElementHelper{
+use FormHero\Helpers\Input;
+use FormHero\Helpers\Type;
 
-    public function __construct(private $id, private $options = [], private $checked = null, private $data = [], private $class = []) {
+class Checkbox extends Input
+{
 
+    public function __construct() {
+        parent::__construct(...func_get_args());
+        $this->TypeSet(Type::CHECKBOX);
     }
-    public function setOptions(array $options) {
-        $this->options = $options;
-    }
-    public function setChecked($selected) {
-        $this->selected = $selected;
-    }
-    public function setData($data) {
-        $this->data = $data;
-    }
-    public function setClass($class) {
-        $this->class = $class;
-    }
-    public function render():ViewHelper {
-        return new ViewHelper($this);
-    }
+
 
 }

@@ -1,17 +1,18 @@
 <?php namespace FormHero\Helpers;
 
 class Type {
-
-    CONST TEXT = 'text';
-    CONST TEXTAREA = 'textarea';
-    CONST SELECT = 'select';
-    CONST TELEFON = 'tel';
-    CONST URL = 'url';
-    CONST DATE = 'date';
-    CONST DATETIME = 'datetime';
-    CONST DATETIMETZ = 'datetimetz';
-    CONST DATETIMETZZ = 'datetimetztz';
-    CONST DATETIMETZZZ = 'datetimetztztz';
+    CONST string CHECKBOX = 'checkbox';
+    CONST string RADIO = 'radio';
+    CONST string TEXT = 'text';
+    CONST string TEXTAREA = 'textarea';
+    CONST string SELECT = 'select';
+    CONST string TELEFON = 'tel';
+    CONST string URL = 'url';
+    CONST string DATE = 'date';
+    CONST string DATETIME = 'datetime';
+    CONST string DATETIMETZ = 'datetimetz';
+    CONST string DATETIMETZZ = 'datetimetztz';
+    CONST string DATETIMETZZZ = 'datetimetztztz';
 
     CONST SUBMIT = 'submit';
 

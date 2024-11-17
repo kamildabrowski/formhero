@@ -1,23 +1,26 @@
 <?php namespace FormHero\Form;
 
-use FormHero\Helpers\Element as ElementHelper;
-use FormHero\Helpers\View as ViewHelper;
-class Radio implements ElementHelper{
+use FormHero\Form\Select\Option as Option;
+use Formhero\Helpers\Element as ElementHelper;
 
-    public function __construct(private $id, private $value = '', private $data = [], private $class = []) {
+class Radio implements ElementHelper
+{
+    public function __construct(public string $name, \ArrayIterator $iterator = new \ArrayIterator()) {
 
     }
-    public function setValue($data) {
-        $this->value = $value;
+    public function lastItem() {
+        return $this->iterator[$this->iterator->count() - 1];
     }
-    public function setData($data) {
-        $this->data = $data;
+    public function addOption(...$args):Option {
+        $this->iterator->append(new Option($args));
+        return $this->lastItem();
     }
-    public function setClass($class) {
-        $this->class = $class;
+    public function setOption(...$args):static {
+        $this->iterator->append(new Option($args));
+        return $this;
     }
-    public function render():ViewHelper {
-        return new ViewHelper($this);
+    public function getOptions():\ArrayIterator {
+        return $this->iterator;
     }
 
 }
