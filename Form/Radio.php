@@ -1,7 +1,7 @@
 <?php namespace FormHero\Form;
 
 use FormHero\Form\Select\Option as Option;
-use Formhero\Helpers\Element as ElementHelper;
+use FormHero\Helpers\Element as ElementHelper;
 
 class Radio implements ElementHelper
 {

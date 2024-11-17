@@ -12,7 +12,7 @@ class Setting {
     use ClassTrait;
     public function __construct(
         public bool $autofill = false,
-        public $method = FormHelper::METHOD_GET,
+        public string $method = FormHelper::METHOD_GET,
         public bool $multifile = false,
     ) {
 

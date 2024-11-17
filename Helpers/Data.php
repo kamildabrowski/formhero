@@ -2,8 +2,8 @@
 
 class Data {
 
-    CONST string KEY_NAME = 'key';
-    const string KEY_VALUE = 'value';
+    CONST KEY_NAME = 'key';
+    const KEY_VALUE = 'value';
     public function __construct(public string $key, public string $value) {
 
     }

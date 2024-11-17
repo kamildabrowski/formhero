@@ -1,8 +1,6 @@
 <?php namespace FormHero\Helpers;
 
 
-use FormHero\Helpers\Data as Data;
-
 trait ClassTrait {
 
     public \ArrayIterator $class;

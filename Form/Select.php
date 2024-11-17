@@ -1,10 +1,9 @@
 <?php namespace FormHero\Form;
 
-use Formhero\Helpers\Element as ElementHelper;
 use FormHero\Form\Select\Option as Option;
-
 use FormHero\Helpers\ClassTrait;
 use FormHero\Helpers\DataTrait;
+use FormHero\Helpers\Element as ElementHelper;
 use FormHero\Helpers\TagTrait;
 
 class Select implements ElementHelper
