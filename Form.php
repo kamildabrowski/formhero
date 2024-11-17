@@ -1,42 +1,39 @@
-<?php namespace app\FormHero;
+<?php namespace FormHero;
 
-use app\FormHero\Helpers\Adding as Adding;
-use app\FormHero\Helpers\Element as ElementHelper;
+use FormHero\Setting\Setting as Setting;
+use FormHero\Views\View;
 
 class Form {
 
-    private Adding $adding;
-    public function __construct() {
-        $this->adding = new Adding;
+    public function __construct(public Setting $setting = new Setting(), public \ArrayIterator $iterator = new \ArrayIterator(), View $view = new View()) {
+
     }
-    public function getElement($id):ElementHelper {
-        return $this->adding->getAddedOne($id);
+
+    public function lastItem() {
+        return $this->iterator[$this->iterator->count() - 1];
     }
-    public function select($id = null, ...$args):Form\Select {
-        $get = new Form\Select($id);
-        $this->adding->setAdded($get);
-        return $get;
+    public function select($id = null):Form\Select {
+        $this->iterator->append(new Form\Select($id));
+        return $this->lastItem();
     }
     public function inputCheckbox($id = null):Form\Checkbox {
-        $get = new Form\Checkbox($id);
-        $this->adding->setAdded($get);
-        return $get;
+        $this->iterator->append(new Form\Checkbox($id));
+        return $this->lastItem();
     }
     public function inputText($id = null):Form\Text {
-        $get = new Form\Text($id);
-        $this->adding->setAdded($get);
-        return $get;
+        $this->iterator->append(new Form\Text($id));
+        return $this->lastItem();
     }
-    public function inputRadio($id = null):Form\Radio {
-        $get = new Form\Radio($id);
-        $this->adding->setAdded($get);
-        return $get;
+    public function inputRadio($id = null):Form\Radios {
+        $this->iterator->append(new Form\Radios($id));
+        return $this->lastItem();
     }
     public function inputSubmit($id = null):mixed {
-        return $this->inputText($id)->setType('submit');
+        $this->iterator->append(new Form\Text($id));
+        return $this->lastItem()->TypeSet(\FormHero\Helpers\Type::SUBMIT);
     }
     public function formSubmit($func):mixed {
-        return $func($this->adding);
+        return $func($this->iterator);
     }
     public function __toString():string {
         return '';

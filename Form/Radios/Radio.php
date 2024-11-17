@@ -1,4 +1,4 @@
-<?php namespace app\FormHero\Form\Radios;
+<?php namespace FormHero\Form\Radios;
 
 class Radio {
 

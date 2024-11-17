@@ -1,13 +1,14 @@
-<?php namespace src\FormHero\Views;
+<?php namespace FormHero\Views;
 
-use src\FormHero\Form;
+use FormHero\Form;
 
 class ViewDefault implements ViewInterface  {
 
-    public function __construct(protected Form $form) {
+    protected Form $form;
+    public function __construct() {
         $this->checkExists();
     }
-    CONST DIRNAME = 'Default';
+    CONST string DIRNAME = 'Default';
     public function getView(): string
     {
         // TODO: Implement getView() method.

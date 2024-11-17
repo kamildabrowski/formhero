@@ -1,13 +1,10 @@
-<?php namespace src\FormHero\Views;
+<?php namespace FormHero\Views;
 
 class View {
-    public function __construct(... $args) {
+    public function __construct(ViewInterface $view = new ViewDefault()) {
 
 
 
-    }
-    static public function __new(... $args) {
-        return new self($args);
     }
 
 

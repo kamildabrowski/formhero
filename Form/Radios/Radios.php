@@ -1,6 +1,6 @@
-<?php namespace app\FormHero\Form\Radios;
+<?php namespace FormHero\Form;
 
-use app\FormHero\Form\Radios\Radio as Radio;
+use FormHero\Form\Radios\Radio as Radio;
 
 class Radios {
     public function __construct(public array $radios = []) {

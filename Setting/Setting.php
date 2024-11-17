@@ -1,23 +1,21 @@
-<?php namespace src\FormHero\Setting;
+<?php namespace FormHero\Setting;
 
-use src\FormHero\Form;
-use src\FormHero\Setting\Data as Data;
+use FormHero\Helpers\ClassTrait;
+use FormHero\Helpers\DataTrait;
+use FormHero\Helpers\FormHelper as FormHelper;
+use FormHero\Helpers\TagTrait;
 
 class Setting {
 
-    public function setForm(Form $form) {
-        $this->form = $form;
-    }
-    public function __construct(protected ?Data $data = null) {
-        if(is_null($this->data)) {
-            $this->data = new Data();
-        }
-    }
-    public function Data() {
-        return $this->data;
-    }
-    public function exception($message):void {
-        throw new \Exception($message);
+    use DataTrait;
+    use TagTrait;
+    use ClassTrait;
+    public function __construct(
+        public bool $autofill = false,
+        public $method = FormHelper::METHOD_GET,
+        public bool $multifile = false,
+    ) {
+
     }
 
 

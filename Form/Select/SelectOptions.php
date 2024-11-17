@@ -1,6 +1,6 @@
-<?php namespace app\FormHero\Form\Select;
+<?php namespace FormHero\Form\Select;
 
-use app\FormHero\Form\Select\Option as Option;
+use FormHero\Form\Select\Option as Option;
 class SelectOptions {
 
     public function __construct(public array $options = []) {

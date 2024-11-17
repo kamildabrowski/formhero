@@ -1,7 +1,7 @@
-<?php namespace app\FormHero\Form;
+<?php namespace FormHero\Form;
 
-use app\FormHero\Helpers\Element as ElementHelper;
-use app\FormHero\Helpers\View as ViewHelper;
+use FormHero\Helpers\Element as ElementHelper;
+use FormHero\Helpers\View as ViewHelper;
 class Checkbox implements ElementHelper{
 
     public function __construct(private $id, private $options = [], private $checked = null, private $data = [], private $class = []) {

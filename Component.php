@@ -1,4 +1,4 @@
-<?php namespace src\FormHero;
+<?php namespace FormHero;
 
 class Component {
     public function setForm(Form $form) {

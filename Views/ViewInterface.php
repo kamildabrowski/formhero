@@ -1,4 +1,4 @@
-<?php namespace src\FormHero\Views;
+<?php namespace FormHero\Views;
 
 interface ViewInterface {
 

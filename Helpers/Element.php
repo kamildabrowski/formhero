@@ -1,4 +1,4 @@
-<?php namespace app\Formhero\Helpers;
+<?php namespace Formhero\Helpers;
 interface Element {
 
 }
