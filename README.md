@@ -1,4 +1,4 @@
-# formherox
+# formherox php
 The FormHero SDK provides methods for all form functions.
 
 Codes not working is on stage of ideas bulding. 
