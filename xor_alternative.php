@@ -7,6 +7,7 @@ function run(int $nr) {
 $a = 0;
 $b = 5;
 
+// basic
 if($a) {
     if(!$b) {
         run(1);
@@ -17,12 +18,15 @@ if($a) {
     }
 }
 
-if($a!==$b) {
+//xor Alternatives:
+if((bool) $a!== (bool)$b) {
     run(5);
 }
 
-
-if($a-$b) {
+if(((int)(bool)$a-(int)(bool)$b) {
     run(4);
+}
+if(((int)(bool)$a^(int)(bool)$b) {
+    run(5);
 }
 ?>
