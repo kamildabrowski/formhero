@@ -3,14 +3,14 @@
 use FormHero\Form\Ext\Datas\Textarea\DatasTextarea;
 
 trait DatasTextareaTrait {
-    private DatasTextarea $classes;
-    private function ClassesInit():void {
-        if(empty($this->classes)) {
-            $this->classes = new DatasTextarea($this);
+    private DatasTextarea $datas;
+    private function DatasInit():void {
+        if(empty($this->datas)) {
+            $this->datas = new DatasTextarea($this);
         }
     }
     public function Classes():DatasTextarea {
-        $this->ClassesInit();
-        return $this->classes;
+        $this->DatasInit();
+        return $this->datas;
     }
 }

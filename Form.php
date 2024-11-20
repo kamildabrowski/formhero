@@ -7,21 +7,25 @@ use FormHero\Views\View;
 
 class Form {
 
+    private $i = 0;
     public function __construct(public Setting $setting = new Setting(), public \ArrayIterator $iterator = new \ArrayIterator(), public View $view = new View()) {
         $view->setForm($this);
+        if(!empty($iterator)) {
+            $this->i = count($iterator);
+        }
     }
     public function lastItem() {
         return $this->iterator[$this->iterator->count() - 1];
     }
     public function select($id = null): Form\Select\Select {
-        $this->iterator->append(new Form\Select\Select($id));
-        return $this->lastItem();
+        $select = new Form\Select\Select($this);
+        $this->iterator->append($select);
+        return $select;
     }
-    public function inputText(): Input {
-        $text = new Form\Input\Input($this);
-        $text->Type()->Text()->rInput()->Classes()->add('test')->rInput()->label('test')->name('test')->id('test');
-        $this->iterator->append($text);
-        return $text;
+    public function input(): Input {
+        $input = new Form\Input\Input($this);
+        $this->iterator->append($input);
+        return $input;
     }
 
     public function formSubmit($func):mixed {

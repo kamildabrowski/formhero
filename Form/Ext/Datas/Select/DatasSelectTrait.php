@@ -1,14 +1,14 @@
 <?php namespace FormHero\Form\Ext\Datas\Select;
 
 trait DatasSelectTrait {
-    private DatasSelect $classes;
-    private function ClassesInit():void {
-        if(empty($this->classes)) {
-            $this->classes = new DatasSelect($this);
+    private DatasSelect $datas;
+    private function DatasInit():void {
+        if(empty($this->datas)) {
+            $this->datas = new DatasSelect($this);
         }
     }
-    public function Classes():DatasSelect {
-        $this->ClassesInit();
-        return $this->classes;
+    public function Datas():DatasSelect {
+        $this->DatasInit();
+        return $this->datas;
     }
 }

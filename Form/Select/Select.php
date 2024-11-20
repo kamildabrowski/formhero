@@ -1,33 +1,31 @@
 <?php namespace FormHero\Form\Select;
 
+use FormHero\Form;
+use FormHero\Form\Ext\Filters\Filters;
+use FormHero\Form\FormBasic;
 use FormHero\Form\Select\Option as Option;
-use FormHero\Helpers\ClassTrait;
-use FormHero\Helpers\DataTrait;
 use FormHero\Helpers\Element as ElementHelper;
-use FormHero\Helpers\TagTrait;
+
+use FormHero\Form\Ext\Classes\Select\ClassesSelectTrait;
+use FormHero\Form\Ext\Datas\Select\DatasSelectTrait;
+use FormHero\Form\Ext\Tags\Select\TagsSelectTrait;
 
 class Select implements ElementHelper
 {
-    use DataTrait;
-    use TagTrait;
-    use ClassTrait;
+    use ClassesSelectTrait;
+    use DatasSelectTrait;
+    use TagsSelectTrait;
+
     public function __construct(
-        private string $name = '',
-        private string $id = '',
-        private bool $disabled = false,
-        private bool $required = false,
+        private Form $form,
+        public FormBasic $basic = new FormBasic(),
+        private Filters $filters = new Filters(),
         public \ArrayIterator $iterator = new \ArrayIterator()
     )
     {
+    }
 
-    }
-    public  function setDisabled(bool $disabled) {
-        $this->disabled = $disabled;
-    }
-    public  function setRequired(bool $required) {
-        $this->required = $required;
-    }
-    public function lastItem() {
+    private function lastItem() {
         return $this->iterator[$this->iterator->count() - 1];
     }
     public function addOption(string $value, string $text, bool $selected = false):Option {

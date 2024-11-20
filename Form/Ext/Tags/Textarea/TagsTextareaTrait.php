@@ -1,14 +1,14 @@
-<?php namespace FormHero\Form\Ext\Classes\Textarea;
+<?php namespace FormHero\Form\Ext\Tags\Textarea;
 
-trait ClassesTextareaTrait {
-    private ClassesTextarea $classes;
-    private function ClassesInit():void {
-        if(empty($this->classes)) {
-            $this->classes = new ClassesTextarea($this);
+trait TagsTextareaTrait {
+    private TagsTextarea $tags;
+    private function TagsInit():void {
+        if(empty($this->tags)) {
+            $this->tags = new TagsTextarea($this);
         }
     }
-    public function Classes():ClassesTextarea {
-        $this->ClassesInit();
-        return $this->classes;
+    public function Tags():TagsTextarea {
+        $this->TagsInit();
+        return $this->tags;
     }
 }

@@ -1,14 +1,14 @@
 <?php namespace FormHero\Form\Ext\Tags\Input;
 
 trait TagsInputTrait {
-    private TagsInput $classes;
-    private function ClassesInit():void {
-        if(empty($this->classes)) {
-            $this->classes = new TagsInput($this);
+    private TagsInput $tags;
+    private function TagsInit():void {
+        if(empty($this->tags)) {
+            $this->tags = new TagsInput($this);
         }
     }
-    public function Classes():TagsInput {
-        $this->ClassesInit();
-        return $this->classes;
+    public function Tags():TagsInput {
+        $this->TagsInit();
+        return $this->tags;
     }
 }
