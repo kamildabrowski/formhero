@@ -15,16 +15,21 @@ class Input implements ElementHelper
     use ClassesInputTrait;
     use DatasInputTrait;
     use TagsInputTrait;
+    private Basic $basic;
+    private Type $type;
 
     public function __construct(private Form $form,
-                                public FormBasic $basic = new FormBasic(),
                                 private Filters $filters = new Filters(),
                                 public \ArrayIterator $iterator = new \ArrayIterator()
     )
     {
+        $this->basic = new Basic($this);
         $this->type = new Type($this);
     }
 
+    public function Basic():Basic {
+        return $this->basic;
+    }
     private string $val;
     public function value(string $val): static
     {
@@ -32,7 +37,7 @@ class Input implements ElementHelper
         return $this;
     }
 
-    public function type(): Type
+    public function Type(): Type
     {
         return $this->type;
     }

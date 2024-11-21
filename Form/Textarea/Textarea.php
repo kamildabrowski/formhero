@@ -1,32 +1,34 @@
 <?php namespace FormHero\Form\Textarea;
 
+use FormHero\Form;
+use FormHero\Form\Ext\Classes\Textarea\ClassesTextareaTrait;
+use FormHero\Form\Ext\Datas\Textarea\DatasTextareaTrait;
+use FormHero\Form\Ext\Tags\Textarea\TagsTextareaTrait;
+
+use FormHero\Form\Ext\Filters\Filters;
+use FormHero\Form\Input\Type\Type;
+
 use FormHero\Form\Select\Option as Option;
-use FormHero\Helpers\ClassTrait;
-use FormHero\Helpers\DataTrait;
 use FormHero\Helpers\Element as ElementHelper;
-use FormHero\Helpers\TagTrait;
+
 
 class Textarea implements ElementHelper
 {
-    use DataTrait;
-    use TagTrait;
-    use ClassTrait;
+    use ClassesTextareaTrait;
+    use DatasTextareaTrait;
+    use TagsTextareaTrait;
+
+    private Basic $basic;
+    private Type $type;
     public function __construct(
-        private string $name = '',
-        private string $id = '',
-        private bool $disabled = false,
-        private bool $required = false,
+        private Form $form,
+        private Filters $filters = new Filters(),
         public \ArrayIterator $iterator = new \ArrayIterator()
     )
     {
+        $this->basic = new Basic($this);
+    }
 
-    }
-    public  function setDisabled(bool $disabled) {
-        $this->disabled = $disabled;
-    }
-    public  function setRequired(bool $required) {
-        $this->required = $required;
-    }
     public function lastItem() {
         return $this->iterator[$this->iterator->count() - 1];
     }

@@ -2,7 +2,7 @@
 
 use FormHero\Form;
 use FormHero\Form\Ext\Filters\Filters;
-use FormHero\Form\FormBasic;
+use FormHero\Form\Input\Type\Type;
 use FormHero\Form\Select\Option as Option;
 use FormHero\Helpers\Element as ElementHelper;
 
@@ -15,14 +15,16 @@ class Select implements ElementHelper
     use ClassesSelectTrait;
     use DatasSelectTrait;
     use TagsSelectTrait;
+    private Basic $basic;
+    private Type $type;
 
     public function __construct(
         private Form $form,
-        public FormBasic $basic = new FormBasic(),
         private Filters $filters = new Filters(),
         public \ArrayIterator $iterator = new \ArrayIterator()
     )
     {
+        $this->basic = new Basic($this);
     }
 
     private function lastItem() {

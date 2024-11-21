@@ -1,10 +1,8 @@
 <?php namespace FormHero\Form;
 
-class FormBasic {
 
-    public function __construct(private string $name = '', private string $id = '', private string $label = '', private string $placeholder = '') {
+abstract class FormBasic {
 
-    }
     public function getName() {
         return $this->name;
     }
@@ -17,17 +15,21 @@ class FormBasic {
     public function getPlaceholder() {
         return $this->placeholder;
     }
-    public function setName($name) {
+    public function setName(string $name):self {
         $this->name = $name;
+        return $this;
     }
-    public function setId($id) {
+    public function setId(string $id):self {
         $this->id = $id;
+        return $this;
     }
-    public function setLabel($label) {
+    public function setLabel(string $label):self {
         $this->label = $label;
+        return $this;
     }
-    public function setPlaceholder($placeholder) {
+    public function setPlaceholder(string $placeholder):self {
         $this->placeholder = $placeholder;
+        return $this;
     }
 
 }

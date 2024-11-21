@@ -9,7 +9,7 @@ trait DatasTextareaTrait {
             $this->datas = new DatasTextarea($this);
         }
     }
-    public function Classes():DatasTextarea {
+    public function Datas():DatasTextarea {
         $this->DatasInit();
         return $this->datas;
     }
