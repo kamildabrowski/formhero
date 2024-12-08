@@ -17,6 +17,13 @@ if($a) {
         run(1);
     }
 }
+//xor
+if($a!==$b) {
+
+}
+if($a!=$b) {
+
+}
 
 //xor Alternatives:
 if((bool) $a!== (bool)$b) {
